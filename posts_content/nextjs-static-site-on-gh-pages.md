@@ -86,7 +86,7 @@ Because of the `CLEAN` property our GitHub Action, this file will not be deleted
 ## Update root level in Next.js
 
 Next.js assumes that the site is under the root level of your domain. But with GitHub Pages it will
-be served under `username.github.io/repository`.
+be served under `username.github.io/repository`. If you don't have a **custom domain**, this will become a problem. 
 
 We can change the base path in `next.config.js` depending if we're developing locally or building
 for production:
