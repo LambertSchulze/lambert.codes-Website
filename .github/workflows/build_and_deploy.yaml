@@ -17,8 +17,8 @@ jobs:
           npm ci
           npm run build
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.6.1
+      - name: GH Pages deploy
+        uses: Cecilapp/GitHub-Pages-deploy@3.1.0
         with:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
