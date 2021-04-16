@@ -7,8 +7,7 @@ Instead of using Vercel or Netlify I wanted to try out hosting my site on GitHub
 Since it's a fully static site right now (it only uses `gitStaticProps` and `getStaticPaths`)
 this should be possible.
 
-Following this [great article](https://blog.sallai.me/deploy-next-site-to-github-pages) I got it
-up and running with just a few steps:
+While following this [great article](https://blog.sallai.me/deploy-next-site-to-github-pages) by József Sallai I got it up and running with just a few steps:
 
 
 ## Updating the build script
@@ -62,13 +61,16 @@ jobs:
           npm ci
           npm run build
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.6.1
+      - name: Deploy to GitHub Pages
+        uses: Cecilapp/GitHub-Pages-deploy@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: out
-          CLEAN: true
+          email: username@domain.tld
+          build_dir: out
+          branch: gh-pages
+          cname: websitedomain.tld # optional
+          jekyll: no
 ```
 On each push to the `main` branch the action runs `npm run build` and pushes the folder `out` to
 the `gh-pages` branch using our token `secrets.ACCESS_TOKEN`.
@@ -86,13 +88,13 @@ Because of the `CLEAN` property our GitHub Action, this file will not be deleted
 ## Update root level in Next.js
 
 Next.js assumes that the site is under the root level of your domain. But with GitHub Pages it will
-be served under `username.github.io/repository`. If you don't have a **custom domain**, this will become a problem. 
+be served under `username.github.io/repository`. If you **don't** have a custom domain, this will become a problem. 
 
 We can change the base path in `next.config.js` depending if we're developing locally or building
 for production:
 
 ```
-const basePath = process.env.NODE_ENV === 'production' ? '/repo' : '';
+const basePath = process.env.NODE_ENV === 'production' ? '/repository' : '';
 
 module.exports = {
   basePath,
@@ -102,7 +104,6 @@ module.exports = {
 `basePath` specifies the root for `<Link>` components, `assetPrefix` the root for all assets.
 
 
-## Troubleshooting
+## Conclusion
 
-I get an error during the build process stating that the command `::set-env name=DEPLOYMENT_STATUS::success` can't be run. It seems to work nevertheless, but I'll give an update
-as soon as I've fixed the issue.
+I didn't think it was too bad setting things up. This was the first time I took the time to configure GitHub Actions and it felt straightforward to me. Józsefs Article really helped a lot and saved me from some serious headaches!
