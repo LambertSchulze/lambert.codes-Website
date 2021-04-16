@@ -1,1 +1,0 @@
-{"ast":null,"code":"/**\n * for trying out the ping attribute on a tags\n * <a ping=\"/api/log\" ></a>\n */\nexport default ((req, res) => {\n  console.log(req);\n  res.status(200).json(req.rawHeaders);\n});","map":null,"metadata":{},"sourceType":"module"}
