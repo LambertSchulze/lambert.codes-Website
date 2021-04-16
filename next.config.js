@@ -1,4 +1,6 @@
+const basePath = process.env.NODE_ENV === 'production' ? '/lambert.codes-Website' : '';
+
 module.exports = {
-  basePath: '/lambert.codes-Website',
-  assetPrefix: '/lambert.codes-Website'
+  basePath,
+  assetPrefix: `${basePath}/`
 };
