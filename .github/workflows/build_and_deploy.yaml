@@ -22,8 +22,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          email: username@domain.tld
-          build_dir: out  # optional
-          branch: gh-pages   # optional
-          cname: lambert.codes # optional
-          jekyll: no        # optional
+          email: schulze.lambert@googlemail.com
+          build_dir: out
+          branch: gh-pages
+          cname: lambert.codes
+          jekyll: no
