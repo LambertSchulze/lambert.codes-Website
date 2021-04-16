@@ -17,10 +17,13 @@ jobs:
           npm ci
           npm run build
 
-      - name: GH Pages deploy
-        uses: Cecilapp/GitHub-Pages-deploy@3.1.0
+      - name: Deploy to GitHub Pages
+        uses: Cecilapp/GitHub-Pages-deploy@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: out
-          CLEAN: true
+          email: username@domain.tld
+          build_dir: out  # optional
+          branch: gh-pages   # optional
+          cname: lambert.codes # optional
+          jekyll: no        # optional
