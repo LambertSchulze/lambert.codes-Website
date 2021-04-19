@@ -32,34 +32,22 @@ export default function Home({
       </Head>
 
       <header>
-        <h1>
-          <pre><code>
-// lambert codes
-{/* lambert[codes]++;
-lambert && codes;
-{
-  "lambert": "codes"
-}
-lambert(() => codes);
-~lambert (codes); 
-*lambert->codes(); */}
-        </code></pre>
-      </h1>
-    </header>
+        <h1>lambert codes</h1>
+      </header>
     
-    <section>
-      <p>👋 Hi! I'm a software developer and create stuff for the web.
-         I like to make tools that are
-        <ul>
-          <li>helpful</li>
-          <li>insightful</li>
-          <li>nice to look at</li>
-        </ul>
-      </p>
-      <p>Currently I am working for <b>tickettoaster</b>, working on
-         online-shops for musicians, bands and festivals.</p>
-      <p>You can read about things that I've learned on my journey.</p>
-    </section>
+      <section>
+        <p>👋 Hi! I'm a software developer and create stuff for the web.
+          I like to make tools that are
+          <ul>
+            <li>helpful</li>
+            <li>insightful</li>
+            <li>nice to look at</li>
+          </ul>
+        </p>
+        <p>Currently I am working for <b>tickettoaster</b>, working on
+          online-shops for musicians, bands and festivals.</p>
+        <p>You can read about things that I've learned on my journey.</p>
+      </section>
 
       <section>
         <h2>Posts</h2>
