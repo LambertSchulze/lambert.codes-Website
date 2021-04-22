@@ -29,7 +29,7 @@ export default function PostsIndex({
       <ul>
         {allPostsFrontmatter.map(({ id, date, title }) => (
           <li key={id}>
-            <Link href={`/posts/${id}`}>
+            <Link href={`/and-writes/${id}`}>
               <a>{title}</a>
             </Link>
             <br />
