@@ -2,61 +2,63 @@ import  Head            from 'next/head'
 import  Date            from 'components/date'
 import  Link            from 'next/link'
 import {getAllPostIds,
-        getPostData}    from 'lib/posts'
+        getPostData,
+        PostData}       from 'lib/posts'
 import {GetStaticProps,
         GetStaticPaths} from 'next'
 
 
-function Post({postData}: {postData: {
-    title: string;
-    date: string;
-    contentHtml: string;
-}}) {
-  return (
-    <>
-      <Head>
-        <title>{postData.title}</title>
-      </Head>
 
-      <article>
-        <h1>{postData.title}</h1>
-        <div>
-          <Date dateString={postData.date} />
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </article>
+export default function Post({postData}: {postData: PostData})
+{
+    return (
+        <>
+            <Head>
+                <title>{postData.title}</title>
+            </Head>
 
-      <Link href="/">
-        <a>back to Home</a>
-      </Link>      
-    </>
-  )
+            <article>
+                <header>
+                    <h1>{postData.title}</h1>
+                    <Date dateString={postData.publishDate} />
+                </header>
+                <main>
+                    <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+                </main>
+                <footer>
+                    <p>Last updated on: <Date dateString={postData.updateDate} /></p>
+                </footer>
+            </article>
+
+            <Link href="/">
+                <a>back to Home</a>
+            </Link>      
+        </>
+    )
 }
-
-export default Post
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllPostIds()
+    const paths = getAllPostIds()
 
-  return {
-    paths,
-    fallback: false
-  }
+    return {
+        paths,
+        fallback: false
+    }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  if (params === undefined) {
+    if (params === undefined) {
+        return {
+            props: {'': null}
+        }
+    }
+
+    const postData = await getPostData(params.id as string)
+
     return {
-      props: {'': null}
+        props: {
+            postData
+        }
     }
-  }
-
-  const postData = await getPostData(params.id as string)
-
-  return {
-    props: {
-      postData
-    }
-  }
 }

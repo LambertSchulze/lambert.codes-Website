@@ -1,6 +1,7 @@
 ---
 title: 'My plan for this blog'
-date: '2021-04-21'
+publishDate: '2021-04-21'
+updateDate: '2021-04-21'
 ---
 
 
@@ -14,7 +15,7 @@ For this reason I made a plan for myself that reminds me about the expectations 
 These guidelines help me staying motivated and keep pushing forward every week:
 
 
-1. **Content is king**
+## 1. Content is king
 
 My most important goal is to cultivate a habit of consistent writing.
 Getting good at writing is an extremely helpful skill that can help in a lot of different areas.
@@ -24,7 +25,7 @@ Explaining things as simple as possible and to write with easy to understand wor
 And even just to write more in english is very helpful for me, since it is not my native language.
 
 
-2. **Form follows function**
+## 2. Form follows function
 
 More important than a nice looking blog are 
 - semantic HTML
@@ -39,7 +40,7 @@ This helps me to understand and really learn them.
 Only if these points are met, I move on to add other functionality.
 
 
-3. **Take tiny little baby steps**
+## 3. Take tiny little baby steps
 
 Working as a frontend developer I kind of feel ashamed of having just a plain personal site.
 But by focusing on points 1 and 2 I feel better and more comfortable in taking it slow, knowing that the foundation is solid to build upon.

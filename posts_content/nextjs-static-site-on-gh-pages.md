@@ -1,6 +1,7 @@
 ---
 title: 'Hosting a static Next.js site on GitHub Pages'
-date: '2021-04-16'
+publishDate: '2021-04-16'
+updateDate: '2021-04-16'
 ---
 
 Instead of using Vercel or Netlify I wanted to try out hosting my site on GitHub Pages.
